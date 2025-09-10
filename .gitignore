@@ -3,3 +3,5 @@ data/**
 *.pem
 
 .DS_Store
+
+*/incomplete_training/**
