@@ -11,16 +11,40 @@ import yaml
 from pathlib import Path
 from ultralytics import YOLO
 import torch
-import wandb
 from datetime import datetime
+
+try:
+    import wandb
+    WANDB_AVAILABLE = True
+except ImportError:
+    WANDB_AVAILABLE = False
+    wandb = None
+
+def find_project_root():
+    """Find the project root directory by looking for specific markers"""
+    current_dir = Path(__file__).resolve().parent
+    
+    # Look for project markers (e.g., specific directories or files)
+    markers = ['data', 'training', 'jetson', '.git']
+    
+    while current_dir.parent != current_dir:  # Stop at filesystem root
+        if any((current_dir / marker).exists() for marker in markers):
+            return current_dir
+        current_dir = current_dir.parent
+    
+    # Fallback to two levels up from script location
+    return Path(__file__).resolve().parent.parent.parent
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Train YOLOv11n on Railway Object Detection Dataset')
     
+    # Get project root for default paths
+    project_root = find_project_root()
+    
     # Model settings
     parser.add_argument('--model', type=str, default='yolo11n.pt', 
                        help='Model variant (yolo11n.pt, yolo11s.pt, yolo11m.pt)')
-    parser.add_argument('--data', type=str, default='../../data/yolo_dataset/data.yaml',
+    parser.add_argument('--data', type=str, default=str(project_root / 'data' / 'yolo_dataset' / 'data.yaml'),
                        help='Path to dataset yaml file')
     
     # Training settings
@@ -46,7 +70,7 @@ def parse_args():
                        help='SGD momentum')
     
     # Output settings
-    parser.add_argument('--project', type=str, default='./result',
+    parser.add_argument('--project', type=str, default=str(project_root / 'result'),
                        help='Project name for saving results')
     parser.add_argument('--name', type=str, default=None,
                        help='Experiment name')
@@ -67,7 +91,7 @@ def parse_args():
 
 def setup_wandb(args):
     """Initialize Weights & Biases logging"""
-    if args.wandb:
+    if args.wandb and WANDB_AVAILABLE:
         wandb.init(
             project=args.project,
             name=args.name or f"yolo11n_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
@@ -81,6 +105,8 @@ def setup_wandb(args):
                 'momentum': args.momentum,
             }
         )
+    elif args.wandb and not WANDB_AVAILABLE:
+        print("⚠️ Wandb not available. Install with: pip install wandb")
 
 def validate_dataset(data_path):
     """Validate dataset configuration and paths"""
@@ -214,7 +240,7 @@ def main():
         print(f"📁 Results saved to: {results.save_dir}")
         
         # Log final results to wandb
-        if args.wandb:
+        if args.wandb and WANDB_AVAILABLE:
             best_model_path = os.path.join(results.save_dir, 'weights', 'best.pt')
             if os.path.exists(best_model_path):
                 wandb.save(best_model_path)
@@ -233,7 +259,7 @@ def main():
         print(f"\n❌ Training failed with error: {str(e)}")
         raise
     finally:
-        if args.wandb and wandb.run:
+        if args.wandb and WANDB_AVAILABLE and wandb.run:
             wandb.finish()
 
 if __name__ == "__main__":
