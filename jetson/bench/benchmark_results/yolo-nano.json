@@ -1,0 +1,64 @@
+{
+  "model_info": {
+    "model_path": "../../result/trained_models/yolo11n_railway/weights/best.pt",
+    "model_name": "best",
+    "model_type": ".pt",
+    "dataset": "./data/data.yaml",
+    "classes": [
+      "niaocao",
+      "suliaodai",
+      "piaofuwu",
+      "qiqiu"
+    ],
+    "num_classes": 4,
+    "device": "0",
+    "timestamp": "20250910_212306"
+  },
+  "validation": {
+    "mAP@0.5": 0.9456119678870485,
+    "mAP@0.5:0.95": 0.8500431619811952,
+    "precision": 0.9149175880662502,
+    "recall": 0.8893072270691966,
+    "validation_time": 79.92919540405273,
+    "per_class": {
+      "niaocao": {
+        "mAP@0.5": 0.9699683283016569
+      },
+      "suliaodai": {
+        "mAP@0.5": 0.7788483582298926
+      },
+      "piaofuwu": {
+        "mAP@0.5": 0.8748617140818196
+      },
+      "qiqiu": {
+        "mAP@0.5": 0.7764942473114114
+      }
+    }
+  },
+  "inference_speed": {
+    "total_mean": 47.31311798095703,
+    "total_std": 27.730519353871507,
+    "total_min": 37.77050971984863,
+    "total_max": 193.75920295715332,
+    "fps_mean": 21.135787339200263,
+    "fps_min": 5.16104517740576,
+    "fps_max": 26.4756818856086,
+    "successful_predictions": 30,
+    "total_detections": 112,
+    "avg_detections_per_image": 3.7333333333333334
+  },
+  "resolution_benchmark": {
+    "320x320": {
+      "inference_time_ms": 28.858494758605957,
+      "fps": 34.65184197459875
+    },
+    "416x416": {
+      "inference_time_ms": 29.63275909423828,
+      "fps": 33.74643572067636
+    },
+    "640x640": {
+      "inference_time_ms": 31.495618820190433,
+      "fps": 31.75044775938629
+    }
+  }
+}
