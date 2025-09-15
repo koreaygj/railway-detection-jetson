@@ -1,0 +1,127 @@
+{
+  "benchmark_info": {
+    "model_path": "../convert/model/yolo11n_int8.engine",
+    "model_name": "yolo11n_int8.engine",
+    "dataset_path": "data/data.yaml",
+    "timestamp": "2025-09-15T18:38:38.404171",
+    "test_config": {
+      "max_images": null,
+      "warmup_runs": 5,
+      "imgsz": 640,
+      "performance_conf": 0.25,
+      "accuracy_conf": 0.001
+    }
+  },
+  "performance": {
+    "model_info": {
+      "file_path": "../convert/model/yolo11n_int8.engine",
+      "file_name": "yolo11n_int8.engine",
+      "file_size": 5531137,
+      "model_type": "TensorRT",
+      "created_time": "2025-09-15T16:08:05.907589",
+      "modified_time": "2025-09-15T16:04:44.814415"
+    },
+    "performance": {
+      "total_images_processed": 2924,
+      "failed_inferences": 0,
+      "success_rate": 1.0,
+      "avg_latency_ms": 22.335421615031773,
+      "std_latency_ms": 3.8684820873066257,
+      "min_latency_ms": 14.85896110534668,
+      "max_latency_ms": 114.57538604736328,
+      "p50_latency_ms": 21.456241607666016,
+      "p95_latency_ms": 27.46179103851318,
+      "p99_latency_ms": 37.58289575576782,
+      "fps": 44.771932996644146,
+      "min_fps": 8.727878076593337,
+      "max_fps": 67.29945605956068,
+      "throughput": 14.795144673066513,
+      "avg_detections_per_image": 2.929206566347469,
+      "total_detections": 8565,
+      "max_detections_per_image": 67
+    },
+    "benchmark_config": {
+      "max_images": null,
+      "warmup_runs": 5,
+      "device": "0",
+      "conf_threshold": 0.25,
+      "iou_threshold": 0.45,
+      "imgsz": 640,
+      "model_load_time": 0.0030145645141601562,
+      "warmup_time": 0.531458854675293,
+      "total_benchmark_time": 197.63240337371826,
+      "timestamp": "2025-09-15T18:41:56.578286"
+    },
+    "dataset_info": {
+      "dataset_path": "data/data.yaml",
+      "total_images_available": 2924,
+      "images_tested": 2924
+    },
+    "system_info": {
+      "platform": "Linux",
+      "platform_release": "5.15.148-tegra",
+      "platform_version": "#1 SMP PREEMPT Tue Jan 7 17:14:38 PST 2025",
+      "architecture": "aarch64",
+      "hostname": "ubuntu",
+      "processor": "aarch64",
+      "python_version": "3.10.12",
+      "cpu_count": 6,
+      "memory_total": 7990095872,
+      "timestamp": "2025-09-15T18:38:38.281548",
+      "gpu_info": "pynvml not available"
+    }
+  },
+  "accuracy": {
+    "validation_time": 58.73024845123291,
+    "map50": 0.9435195179871531,
+    "map50_95": 0.8363633978090934,
+    "precision": 0.9066743051157009,
+    "recall": 0.8899990892894207,
+    "f1_score": 0.8982593145175055,
+    "class_maps": [
+      0.9608803727845396,
+      0.7671063501587312,
+      0.854812103000089,
+      0.7626547652930136
+    ],
+    "class_metrics": {
+      "niaocao": {
+        "map50": 0.9608803727845396,
+        "class_id": 0
+      },
+      "suliaodai": {
+        "map50": 0.7671063501587312,
+        "class_id": 1
+      },
+      "piaofuwu": {
+        "map50": 0.854812103000089,
+        "class_id": 2
+      },
+      "qiqiu": {
+        "map50": 0.7626547652930136,
+        "class_id": 3
+      }
+    }
+  },
+  "analysis": {
+    "timestamp": "2025-09-15T18:42:55.312262",
+    "overall_score": 100.0,
+    "performance_grade": "A+",
+    "accuracy_grade": "A+",
+    "recommendations": [
+      "✅ 현재 설정이 양호합니다"
+    ],
+    "performance_metrics": {
+      "fps": 44.771932996644146,
+      "latency_ms": 22.335421615031773,
+      "score": 100
+    },
+    "accuracy_metrics": {
+      "map50": 0.9435195179871531,
+      "map50_95": 0.8363633978090934,
+      "precision": 0.9066743051157009,
+      "recall": 0.8899990892894207,
+      "score": 100
+    }
+  }
+}

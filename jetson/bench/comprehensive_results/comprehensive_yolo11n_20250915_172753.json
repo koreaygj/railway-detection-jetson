@@ -1,0 +1,91 @@
+{
+  "benchmark_info": {
+    "model_path": "../convert/model/yolo11n.pt",
+    "model_name": "yolo11n.pt",
+    "dataset_path": "data/data.yaml",
+    "timestamp": "2025-09-15T17:23:31.051876",
+    "test_config": {
+      "max_images": null,
+      "warmup_runs": 5,
+      "imgsz": 640,
+      "performance_conf": 0.25,
+      "accuracy_conf": 0.001
+    }
+  },
+  "performance": {
+    "model_info": {
+      "file_path": "../convert/model/yolo11n.pt",
+      "file_name": "yolo11n.pt",
+      "file_size": 5479066,
+      "model_type": "PyTorch",
+      "created_time": "2025-09-15T11:23:50.322267",
+      "modified_time": "2025-09-15T11:23:50.322267"
+    },
+    "performance": {
+      "total_images_processed": 2924,
+      "failed_inferences": 0,
+      "success_rate": 1.0,
+      "avg_latency_ms": 43.02440728436743,
+      "std_latency_ms": 8.564115699463729,
+      "min_latency_ms": 36.355018615722656,
+      "max_latency_ms": 265.1546001434326,
+      "p50_latency_ms": 41.872262954711914,
+      "p95_latency_ms": 47.70686626434326,
+      "p99_latency_ms": 58.97112607955931,
+      "fps": 23.24262117989344,
+      "min_fps": 3.771384692021411,
+      "max_fps": 27.50651871671782,
+      "throughput": 11.316150219982799,
+      "avg_detections_per_image": 2.9227086183310536,
+      "total_detections": 8546,
+      "max_detections_per_image": 61
+    },
+    "benchmark_config": {
+      "max_images": null,
+      "warmup_runs": 5,
+      "device": "0",
+      "conf_threshold": 0.25,
+      "iou_threshold": 0.45,
+      "imgsz": 640,
+      "model_load_time": 0.12349510192871094,
+      "warmup_time": 1.3306927680969238,
+      "total_benchmark_time": 258.3917624950409,
+      "timestamp": "2025-09-15T17:27:50.905323"
+    },
+    "dataset_info": {
+      "dataset_path": "data/data.yaml",
+      "total_images_available": 2924,
+      "images_tested": 2924
+    },
+    "system_info": {
+      "platform": "Linux",
+      "platform_release": "5.15.148-tegra",
+      "platform_version": "#1 SMP PREEMPT Tue Jan 7 17:14:38 PST 2025",
+      "architecture": "aarch64",
+      "hostname": "ubuntu",
+      "processor": "aarch64",
+      "python_version": "3.10.12",
+      "cpu_count": 6,
+      "memory_total": 7990095872,
+      "timestamp": "2025-09-15T17:23:30.929656",
+      "gpu_info": "pynvml not available"
+    }
+  },
+  "accuracy": {
+    "error": "Accuracy benchmark failed"
+  },
+  "analysis": {
+    "timestamp": "2025-09-15T17:27:53.741801",
+    "overall_score": 0.0,
+    "performance_grade": "A",
+    "accuracy_grade": "N/A",
+    "recommendations": [
+      "✅ 현재 설정이 양호합니다"
+    ],
+    "performance_metrics": {
+      "fps": 23.24262117989344,
+      "latency_ms": 43.02440728436743,
+      "score": 90
+    }
+  }
+}
