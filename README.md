@@ -221,7 +221,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 For questions about this research, please contact:
-- **Primary Researcher**: [Your Name] - [your.email@domain.com]
+- **Primary Researcher**: Gyeongjin,Yang - koreaygj@chungbuk.ac.kr
 - **Lab**: AVLab, Chungbuk National University
 
 ---
